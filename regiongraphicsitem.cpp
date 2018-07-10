@@ -32,7 +32,7 @@ RegionGraphicsItem::RegionGraphicsItem(Region *region)
 
 int RegionGraphicsItem::baseSize()
 {
-    return 90;
+    return 60;
 }
 
 QPainterPath RegionGraphicsItem::hexagonPath()
