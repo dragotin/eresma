@@ -18,6 +18,8 @@
 #include "iteminfo.h"
 #include "region.h"
 
+
+// Just a stub object to show information about the region/unit
 ItemInfo::ItemInfo(QWidget *parent)
     : QTextBrowser(parent)
 {
@@ -29,4 +31,5 @@ void ItemInfo::slotCurrentRegion(Region *r)
     if( !r ) return;
 
     setText(tr("<h1>%1</h1>").arg(r->_name));
+    // ...more html to be assembled here with details about the region
 }
