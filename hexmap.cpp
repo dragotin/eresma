@@ -23,6 +23,8 @@
 #include <QGraphicsView>
 #include <QVBoxLayout>
 
+
+
 HexMap::HexMap(QWidget *parent)
     :QFrame(parent)
 {
@@ -30,6 +32,8 @@ HexMap::HexMap(QWidget *parent)
     setLayout(lay);
     setFrameStyle(Sunken | StyledPanel);
 
+    // Use a VBoxLayout here, just in case. Currently there is only one widget,
+    // but maybe there should be a zoom slider or anything above the map.
     _view.reset(new QGraphicsView);
     lay->addWidget(_view.data());
     _view->setRenderHint(QPainter::Antialiasing, false);
@@ -46,6 +50,10 @@ HexMap::HexMap(QWidget *parent)
     populateScene();
 }
 
+
+// Test routine to fill up the map with a huge number of regions.
+// Later this or a similar routine needs to go somewhere else. Probably where the parsing of the
+// reports is done.
 void HexMap::populateScene()
 {
     const int rx = RegionGraphicsItem::baseSize();
@@ -69,12 +77,14 @@ void HexMap::populateScene()
     }
 }
 
+
+// Slot to handle the selection of regions within the map
 void HexMap::slotSelectionChanged()
 {
      QList<QGraphicsItem*> selected = _scene->selectedItems();
      if( selected.count() > 0 ) {
          Region *r = static_cast<RegionGraphicsItem*>(selected.at(0))->region();
-         emit regionSelected(r);
+         emit regionSelected(r); // tell others about the selection.
      }
 }
 
