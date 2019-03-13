@@ -1,7 +1,7 @@
 /***************************************************************************
                      Eresma Qt based Eressea Viewer
                              -------------------
-    begin                : July 2018
+    begin                : July 2018-2019
     copyright            : (C) 2018 Klaas Freitag
     email                : klaas@volle-kraft-voraus.de
  ***************************************************************************/
